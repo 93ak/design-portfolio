@@ -1,4 +1,5 @@
-// Central data source for portfolio videos and posters.
+// Image helper — no leading slash so GH Pages base is respected
+const img = (file) => `images/${file}`
 
 export const videos = [
   {
@@ -42,11 +43,6 @@ export const videos = [
     description: 'Sports Montage',
   },
 ]
-
-// Image paths: no leading slash, no /public prefix.
-// Vite serves /public at root. On GH Pages under /design-portfolio/,
-// a leading slash would bypass the base — relative paths let the base prepend correctly.
-const img = (file) => `images/${file}`
 
 export const posters = [
   {

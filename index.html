@@ -4,12 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vlackvink</title>
-    <!-- Lemon Milk via local @font-face or CDN fallback using Orbitron as closest match -->
+    <script>
+      // Restore path after GitHub Pages 404 redirect
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+      @font-face {
+        font-family: 'LemonMilk';
+        src: url('fonts/LEMONMILK-Medium.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'LemonMilk';
+        src: url('fonts/LEMONMILK-Medium.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
 
-      /* Lemon Milk is a commercial font. We use Orbitron as a close free alternative.
-         Replace with actual Lemon Milk @font-face if you own the license. */
       :root {
         --font-brand: 'LemonMilk', sans-serif;
         --font-body: Helvetica, Arial, sans-serif;
@@ -17,7 +37,6 @@
         --color-cyan: #00F5DF;
         --color-navy: #000819;
       }
-
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
@@ -32,4 +51,4 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
-</html>
+</html>  
