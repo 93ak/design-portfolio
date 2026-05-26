@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "homepage": "https://YOUR-GITHUB-USERNAME.github.io/design-portfolio",
   "dependencies": {
     "framer-motion": "^11.0.6",
     "react": "^18.2.0",
@@ -21,6 +22,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "vite build",
     "deploy": "gh-pages -d dist"
   }
 }
