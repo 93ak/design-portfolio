@@ -1,5 +1,8 @@
-// Image helper — no leading slash so GH Pages base is respected
-const img = (file) => `images/${file}`
+// Use import.meta.env.BASE_URL so paths work both locally and on GH Pages
+// locally:    BASE_URL = '/'               → /images/file.png
+// GH Pages:   BASE_URL = '/design-portfolio/' → /design-portfolio/images/file.png
+const base = import.meta.env.BASE_URL
+const img = (file) => `${base}images/${file}`
 
 export const videos = [
   {
