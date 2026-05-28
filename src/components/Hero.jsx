@@ -92,8 +92,11 @@ export default function Hero() {
         </motion.div>
 
         {/* ─── Right: Image placeholder ─────────────── */}
-        <motion.div variants={imageVariants} className="flex-1 flex justify-end">
-          <div className="relative w-full max-w-4xl overflow-hidden">
+        <motion.div
+          variants={imageVariants}
+          className="flex-1 self-stretch flex justify-end"
+        >
+          <div className="relative h-full w-full max-w-4xl overflow-hidden">
             {/* Left fade */}
             <div
               className="absolute inset-y-0 left-0 w-1/2 z-10 pointer-events-none"
@@ -115,7 +118,7 @@ export default function Hero() {
             <img
               src="https://i.pinimg.com/1200x/71/88/86/718886ccff63857bd635cb02c44116cf.jpg"
               alt="vlackvink hero"
-              className="w-full h-auto object-contain"
+              className="w-full h-full object-cover"
               style={{ filter: 'saturate(0.3) contrast(1.1)' }}
             />
 
