@@ -18,13 +18,13 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="overflow-hidden"
+      // overflow-hidden on the section was trapping vertical scroll inside —
+      // removed it. Each scroll track handles its own overflow.
       style={{ backgroundColor: '#000819' }}
     >
 
       {/* ─── Block 1: Video Editing ──────────────────────── */}
       <div className="pt-24 pb-16">
-        {/* Header row */}
         <motion.div
           ref={videoRef}
           animate={videoControls}
@@ -45,14 +45,12 @@ export default function Portfolio() {
               <span style={{ color: '#00F5DF' }}>Editing</span>
             </h2>
           </div>
-
           <div className="flex gap-3">
             <ArrowButton direction="left"  onClick={scrollLeft}  />
             <ArrowButton direction="right" onClick={scrollRight} />
           </div>
         </motion.div>
 
-        {/* Scrollable track with right fade */}
         <div className="relative pl-8 md:pl-20">
           <div
             className="absolute top-0 right-0 h-full w-24 z-10 pointer-events-none"
@@ -61,7 +59,7 @@ export default function Portfolio() {
           <div
             ref={scrollRef}
             className="flex gap-6 overflow-x-auto scroll-snap-x py-4"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', overflowY: 'hidden' }}
           >
             {videos.map((video, i) => (
               <motion.div
@@ -78,9 +76,13 @@ export default function Portfolio() {
         </div>
       </div>
 
+      {/* ─── Divider ─────────────────────────────────────── */}
+      <div className="px-8 md:px-20">
+        <div className="w-full h-px" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }} />
+      </div>
+
       {/* ─── Block 2: Posters & Graphics ─────────────────── */}
-      <div className="pt-1 pb-24">
-        {/* Header */}
+      <div className="pt-16 pb-24">
         <motion.div
           ref={posterRef}
           animate={posterControls}
@@ -95,13 +97,17 @@ export default function Portfolio() {
           </h2>
         </motion.div>
 
-        {/* Scrollable track with both fade edges */}
-        <div className="relative px-8 md:px-20 overflow-visible">
+        <div className="relative px-8 md:px-20">
           <div
             className="absolute top-0 right-8 md:right-20 h-full w-16 z-10 pointer-events-none"
             style={{ background: 'linear-gradient(to left, #000819 0%, transparent 100%)' }}
           />
-          <div className="flex gap-10 overflow-x-auto py-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          {/* overflowY: hidden is the key fix — stops the tall cards from
+              creating an internal vertical scrollbar inside the track */}
+          <div
+            className="flex gap-10 overflow-x-auto py-4"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', overflowY: 'hidden' }}
+          >
             {posters.map((poster, i) => (
               <motion.div
                 key={poster.id}

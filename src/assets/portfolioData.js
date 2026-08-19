@@ -6,6 +6,14 @@ const img = (file) => `${base}images/${file}`
 
 export const videos = [
   {
+    id: '6',
+    title: 'See Me!! - Sophie Powers',
+    category: '',
+    thumbnail: 'https://img.youtube.com/vi/RW-Cw0DZAz8/hqdefault.jpg',
+    youtubeId: 'shorts/RW-Cw0DZAz8',
+    description: 'made in After Effects',
+  },  
+  {
     id: '1',
     title: 'See Me!! - Sophie Powers',
     category: '',
